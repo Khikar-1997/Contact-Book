@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-const AddContact = () => {
+const AddContactScreen = () => {
   return (
     <View style={styles.addContactScreen}>
       <Text>Contacts</Text>
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddContact;
+export default AddContactScreen;
