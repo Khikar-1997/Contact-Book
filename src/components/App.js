@@ -1,20 +1,20 @@
-import React from 'react';
-import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import * as React from 'react';
+import Contacts from './Contacts';
+import AddContact from './AddContact';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+const Tab = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <Text>Contact Book first push on master</Text>
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Tab.Navigator initialRoyeName="Contacts">
+        <Tab.Screen name="Contacts" component={Contacts} />
+        <Tab.Screen name="AddContact" component={AddContact} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
