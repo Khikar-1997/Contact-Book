@@ -5479,6 +5479,13 @@ react-native-codegen@^0.69.1:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
+react-native-custom-fonts@^1.2.0-beta.1:
+  version "1.2.0-beta.1"
+  resolved "https://registry.yarnpkg.com/react-native-custom-fonts/-/react-native-custom-fonts-1.2.0-beta.1.tgz#3b94a6ddea12473341a902450b68f7bd06f45e84"
+  integrity sha512-+33DNRcfrJEd/vZLqlHys3sp7SnqnLgTdTJJ3U1Mx3FHrJINEznPhGixPuQUqPsJrgpb/ydiZvOvJNudxuj3Iw==
+  dependencies:
+    type-check "^0.4.0"
+
 react-native-gradle-plugin@^0.0.7:
   version "0.0.7"
   resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz"
