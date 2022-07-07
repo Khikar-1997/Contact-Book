@@ -4,4 +4,5 @@ export default {
   stormGrey: '#6E7191',
   cornFlowerBlue: '#4E4B66',
   white: '#FFFFFF',
+  hostWhite: '#F7F7FC',
 };
