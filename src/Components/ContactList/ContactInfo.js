@@ -6,7 +6,7 @@ import colors from '../../Constants/colors';
 const ContactInfo = ({ name, surname, phoneNumber }) => (
   <View style={styles.contactInfoContainer}>
     <Text style={styles.contactNameAndSurnameText}>
-      {surname ? `${name} ${surname}` : `${name}`}
+      {`${name} ${surname || ''}`}
     </Text>
     <Text style={styles.contactPhoneText}>{phoneNumber}</Text>
   </View>

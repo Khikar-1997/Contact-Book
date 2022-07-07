@@ -15,9 +15,7 @@ const Avatar = ({ image, name, surname, size = 'small' }) => (
       />
     ) : (
       <Text style={styles.avatarNameFirstLetter}>
-        {surname
-          ? `${name.charAt(0).concat(surname.charAt(0))}`
-          : `${name.charAt(0)}`}
+        {`${name.charAt(0).concat(surname.charAt(0) || '')}`}
       </Text>
     )}
   </View>
