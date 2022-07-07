@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const AddContactScreen = () => {
-  return (
-    <View style={styles.addContactScreen}>
-      <Text>Contacts</Text>
-    </View>
-  );
-};
+const AddContactScreen = () => (
+  <View style={styles.addContactScreen}>
+    <Text>Contacts</Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   addContactScreen: {
