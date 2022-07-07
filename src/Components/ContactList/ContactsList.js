@@ -1,28 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { SectionList, Text, View, StyleSheet } from 'react-native';
 
-import contactListInMap from '../../Utils/HelperFunctions/contactListWithTitle';
+import contactListInMap from '../../Utils/contactListWithTitle';
 import colors from '../../Constants/colors';
 
 import Contact from './Contact';
 
 const ContactsList = () => {
-  const data = contactListInMap();
+  const data = useMemo(() => contactListInMap(), []);
   return (
     <SectionList
       sections={data}
       keyExtractor={item => item.id}
       renderItem={({ item }) => {
-        return (
-          <Contact
-            name={item.name}
-            surname={item.surname}
-            phoneNumber={item.phone_number}
-            image={item.avatar_image}
-          />
-        );
+        return <Contact item={item} />;
       }}
-      stickySectionHeadersEnabled={false}
       renderSectionHeader={({ section: { title } }) => (
         <View style={styles.titleContainer}>
           <Text style={styles.title}>{title}</Text>

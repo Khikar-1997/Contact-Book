@@ -3,10 +3,14 @@ import Avatar from '../../UIKit/Avatar';
 import ContactInfo from './ContactInfo';
 import { StyleSheet, View } from 'react-native';
 
-const Contact = ({ image, name, surname, phoneNumber }) => (
+const Contact = ({ item }) => (
   <View style={styles.contactListContainer}>
-    <Avatar image={image} name={name} surname={surname} />
-    <ContactInfo name={name} surname={surname} phoneNumber={phoneNumber} />
+    <Avatar image={item.avatar_image} name={item.name} surname={item.surname} />
+    <ContactInfo
+      name={item.name}
+      surname={item.surname}
+      phoneNumber={item.phone_number}
+    />
   </View>
 );
 
