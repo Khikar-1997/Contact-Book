@@ -4,13 +4,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import avatarSize from './size';
 import colors from '../../Constants/colors';
 
-const Avatar = ({
-  image,
-  name,
-  surname,
-  size = 'small',
-  imageSize = 'smallImage',
-}) => (
+const Avatar = ({ image, name, surname, size = 'small' }) => (
   <View style={[styles.imageContainer, avatarSize[size]]}>
     {image ? (
       <Image
