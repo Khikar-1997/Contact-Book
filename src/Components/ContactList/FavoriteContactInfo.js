@@ -4,23 +4,10 @@ import { Text, View, StyleSheet } from 'react-native';
 import colors from '../../Constants/colors';
 
 const FavoriteContactInfo = ({ name, surname }) => {
-  let text = '';
-  for (let i = 0, j = 0; i < 9; i++) {
-    text += name.charAt(i);
-    if (name.length === i && surname.length === 0) {
-      break;
-    } else if (name.length < i) {
-      text += surname.charAt(j);
-      j++;
-    } else if (name.length === i) {
-      text += ' ';
-    }
-  }
-
   return (
     <View style={styles.contactInfoContainer}>
-      <Text style={styles.contactNameAndSurnameText}>
-        {`${text.concat('...')}`}
+      <Text style={styles.contactNameAndSurnameText} numberOfLines={1}>
+        {`${name} ${surname || ''}`}
       </Text>
     </View>
   );
@@ -40,7 +27,7 @@ const styles = StyleSheet.create({
     paddingBottom: 3,
     color: colors.black,
     fontWeight: '600',
-    marginTop: 8.78,
+    marginTop: 9,
   },
 });
 

@@ -1,7 +1,3 @@
 import MOCK_DATA from '../../data/MOCK_DATA.json';
 
-export default () => {
-  return MOCK_DATA.filter(cur => {
-    return cur.favorites;
-  });
-};
+export default () => MOCK_DATA.filter(cur => cur.favorites);
