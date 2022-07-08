@@ -8,6 +8,8 @@ import MOCK_DATA from '../../data/MOCK_DATA.json';
 import List from '../Components/ContactList/List';
 import FavoritesList from '../Components/ContactList/FavoritesList';
 
+import colors from '../Constants/colors';
+
 const Contacts = () => {
   const navigation = useNavigation();
 
@@ -23,6 +25,7 @@ const Contacts = () => {
 const styles = StyleSheet.create({
   contactScreen: {
     flex: 1,
+    backgroundColor: colors.white,
   },
 });
 

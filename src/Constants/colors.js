@@ -6,4 +6,5 @@ export default {
   white: '#FFFFFF',
   hostWhite: '#F7F7FC',
   black: '#000000',
+  lavender: '#EFF0F7',
 };

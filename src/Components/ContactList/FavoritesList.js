@@ -6,13 +6,16 @@ import Contact from './Contact';
 
 const FavoritesList = ({ data }) => {
   const favoritesList = useMemo(() => filterFavorites(data), [data]);
+
+  const renderItem = ({ item }) => {
+    return <Contact contact={item} isFavorite />;
+  };
+
   return (
     <FlatList
       data={favoritesList}
       keyExtractor={item => item.id}
-      renderItem={({ item }) => {
-        return <Contact contact={item} isFavorite />;
-      }}
+      renderItem={renderItem}
       horizontal
     />
   );

@@ -8,18 +8,23 @@ import Contact from './Contact';
 
 const List = ({ data }) => {
   const contactList = useMemo(() => contactListWithTitle(data), [data]);
+
+  const rendererFunction = ({ section: { title } }) => (
+    <View style={styles.titleContainer}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+
+  const renderItem = ({ item }) => {
+    return <Contact contact={item} />;
+  };
+
   return (
     <SectionList
       sections={contactList}
       keyExtractor={item => item.id}
-      renderItem={({ item }) => {
-        return <Contact contact={item} />;
-      }}
-      renderSectionHeader={({ section: { title } }) => (
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>{title}</Text>
-        </View>
-      )}
+      renderItem={renderItem}
+      renderSectionHeader={rendererFunction}
     />
   );
 };
