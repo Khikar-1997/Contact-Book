@@ -1,16 +1,16 @@
 import React, { useMemo } from 'react';
 import { SectionList, Text, View, StyleSheet } from 'react-native';
 
-import contactListInMap from '../../Utils/contactListWithTitle';
+import contactListWithTitle from '../../Utils/contactListWithTitle';
 import colors from '../../Constants/colors';
 
 import Contact from './Contact';
 
-const List = () => {
-  const data = useMemo(() => contactListInMap(), []);
+const List = ({ data }) => {
+  const contactList = useMemo(() => contactListWithTitle(data), [data]);
   return (
     <SectionList
-      sections={data}
+      sections={contactList}
       keyExtractor={item => item.id}
       renderItem={({ item }) => {
         return <Contact contact={item} />;

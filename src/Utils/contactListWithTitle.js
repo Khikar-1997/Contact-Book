@@ -1,7 +1,5 @@
-import MOCK_DATA from '../../data/MOCK_DATA.json';
-
-export default () => {
-  const copied = [...MOCK_DATA];
+export default data => {
+  const copied = [...data];
   copied.sort((a, b) => {
     return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
   });
