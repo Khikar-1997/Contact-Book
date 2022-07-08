@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 import checkFavorites from '../../Utils/checkFavorites';
 import { FlatList } from 'react-native';
-import FavoriteContact from '../FavoritesContactList/FavoriteContact';
+import Contact from './Contact';
 
 const FavoritesList = () => {
   const favoritesList = useMemo(() => checkFavorites(), []);
@@ -11,9 +11,9 @@ const FavoritesList = () => {
       data={favoritesList}
       keyExtractor={item => item.id}
       renderItem={({ item }) => {
-        return <FavoriteContact contact={item} />;
+        return <Contact contact={item} isFavorite />;
       }}
-      horizontal={true}
+      horizontal
     />
   );
 };

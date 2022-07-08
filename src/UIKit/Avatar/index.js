@@ -2,7 +2,6 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 import avatarSize from './size';
-import avatarImageSize from './avatarImageSize';
 import colors from '../../Constants/colors';
 
 const Avatar = ({
@@ -18,7 +17,7 @@ const Avatar = ({
         source={{
           uri: image,
         }}
-        style={[styles.avatarImage, avatarImageSize[imageSize]]}
+        style={styles.avatarImage}
       />
     ) : (
       <Text style={styles.avatarNameFirstLetter}>
@@ -33,10 +32,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blackPearl,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   avatarImage: {
-    paddingBottom: 28,
-    marginBottom: 10,
+    width: '100%',
+    height: '100%',
   },
   avatarNameFirstLetter: {
     color: colors.white,

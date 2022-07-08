@@ -4,8 +4,8 @@ import { View, StyleSheet, Button } from 'react-native';
 
 import { ADD_CONTACTS } from '../Constants/navigationRouts';
 
-import ContactsList from '../Components/ContactList/ContactsList';
-import FavoritesList from '../Components/FavoritesContactList/FavoritesList';
+import List from '../Components/ContactList/List';
+import FavoritesList from '../Components/ContactList/FavoritesList';
 
 const Contacts = () => {
   const navigation = useNavigation();
@@ -14,7 +14,7 @@ const Contacts = () => {
     <View style={styles.contactScreen}>
       <Button title="Add" onPress={() => navigation.navigate(ADD_CONTACTS)} />
       <FavoritesList />
-      <ContactsList />
+      <List />
     </View>
   );
 };

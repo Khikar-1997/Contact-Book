@@ -7,8 +7,8 @@ export default StyleSheet.create({
     borderRadius: 16,
   },
   large: {
-    width: 103.84,
-    height: 103.84,
+    width: 104,
+    height: 104,
     borderRadius: 24,
   },
 });
