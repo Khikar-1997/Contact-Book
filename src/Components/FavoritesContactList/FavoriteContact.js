@@ -1,31 +1,26 @@
 import React from 'react';
 import Avatar from '../../UIKit/Avatar';
-import ContactInfo from './ContactInfo';
 import { StyleSheet, View } from 'react-native';
+import FavoriteContactInfo from './FavoriteContactInfo';
 
-const Contact = ({ item }) => (
+const FavoriteContact = ({ item }) => (
   <View style={styles.contactListContainer}>
     <Avatar
       image={item.avatar_image}
       name={item.name}
       surname={item.surname}
-      size="small"
-      imageSize="smallImage"
+      size="large"
+      imageSize="largeImage"
     />
-    <ContactInfo
-      name={item.name}
-      surname={item.surname}
-      phoneNumber={item.phone_number}
-    />
+    <FavoriteContactInfo name={item.name} surname={item.surname} />
   </View>
 );
 
 const styles = StyleSheet.create({
   contactListContainer: {
-    flexDirection: 'row',
     paddingBottom: 26,
     paddingLeft: 16,
   },
 });
 
-export default Contact;
+export default FavoriteContact;
