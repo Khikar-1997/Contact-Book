@@ -11,7 +11,7 @@ const FavoritesList = () => {
       data={favoritesList}
       keyExtractor={item => item.id}
       renderItem={({ item }) => {
-        return <FavoriteContact item={item} />;
+        return <FavoriteContact contact={item} />;
       }}
       horizontal={true}
     />

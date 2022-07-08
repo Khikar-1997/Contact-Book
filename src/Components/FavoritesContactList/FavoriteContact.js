@@ -3,16 +3,16 @@ import Avatar from '../../UIKit/Avatar';
 import { StyleSheet, View } from 'react-native';
 import FavoriteContactInfo from './FavoriteContactInfo';
 
-const FavoriteContact = ({ item }) => (
+const FavoriteContact = ({ contact }) => (
   <View style={styles.contactListContainer}>
     <Avatar
-      image={item.avatar_image}
-      name={item.name}
-      surname={item.surname}
+      image={contact.avatar_image}
+      name={contact.name}
+      surname={contact.surname}
       size="large"
       imageSize="largeImage"
     />
-    <FavoriteContactInfo name={item.name} surname={item.surname} />
+    <FavoriteContactInfo name={contact.name} surname={contact.surname} />
   </View>
 );
 

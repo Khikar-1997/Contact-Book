@@ -13,7 +13,7 @@ const ContactsList = () => {
       sections={data}
       keyExtractor={item => item.id}
       renderItem={({ item }) => {
-        return <Contact item={item} />;
+        return <Contact contact={item} />;
       }}
       renderSectionHeader={({ section: { title } }) => (
         <View style={styles.titleContainer}>
