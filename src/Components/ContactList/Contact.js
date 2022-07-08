@@ -1,21 +1,12 @@
 import React from 'react';
-import Avatar from '../../UIKit/Avatar';
-import ContactInfo from './ContactInfo';
-import { StyleSheet, View } from 'react-native';
+import ContactRow from './ContactRow';
+import FavoriteContact from './FavoriteContact';
 
-const Contact = ({ image, name, surname, phoneNumber }) => (
-  <View style={styles.contactListContainer}>
-    <Avatar image={image} name={name} surname={surname} />
-    <ContactInfo name={name} surname={surname} phoneNumber={phoneNumber} />
-  </View>
-);
-
-const styles = StyleSheet.create({
-  contactListContainer: {
-    flexDirection: 'row',
-    paddingBottom: 26,
-    paddingLeft: 16,
-  },
-});
+const Contact = ({ contact, isFavorite }) =>
+  !isFavorite ? (
+    <ContactRow contact={contact} />
+  ) : (
+    <FavoriteContact contact={contact} />
+  );
 
 export default Contact;

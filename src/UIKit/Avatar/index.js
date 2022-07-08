@@ -23,16 +23,14 @@ const Avatar = ({ image, name, surname, size = 'small' }) => (
 
 const styles = StyleSheet.create({
   imageContainer: {
-    backgroundColor: colors.black,
-    borderRadius: 16,
+    backgroundColor: colors.blackPearl,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   avatarImage: {
-    width: 40,
-    height: 43,
-    paddingBottom: 28,
-    marginBottom: 10,
+    width: '100%',
+    height: '100%',
   },
   avatarNameFirstLetter: {
     color: colors.white,

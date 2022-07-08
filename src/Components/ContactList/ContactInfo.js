@@ -5,10 +5,12 @@ import colors from '../../Constants/colors';
 
 const ContactInfo = ({ name, surname, phoneNumber }) => (
   <View style={styles.contactInfoContainer}>
-    <Text style={styles.contactNameAndSurnameText}>
+    <Text style={styles.contactNameAndSurnameText} numberOfLines={1}>
       {`${name} ${surname || ''}`}
     </Text>
-    <Text style={styles.contactPhoneText}>{phoneNumber}</Text>
+    <Text style={styles.contactPhoneText} numberOfLines={1}>
+      {phoneNumber}
+    </Text>
   </View>
 );
 
