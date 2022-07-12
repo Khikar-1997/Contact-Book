@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     height: 24,
     marginLeft: 10,
     borderBottomColor: colors.grey,
-    marginBottom: 25,
+    marginBottom: 50,
     alignItems: 'center',
   },
   contactNameAndSurnameText: {

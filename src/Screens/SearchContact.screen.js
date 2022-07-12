@@ -4,12 +4,14 @@ import IconButton from '../Components/Buttons/IconButton';
 import * as Routes from '../Constants/navigationRouts';
 import imagePaths from '../Constants/imagePaths';
 
-const AddContactScreen = () => <View />;
+const SearchContact = () => {
+  return <View />;
+};
 
-AddContactScreen.options = {
+SearchContact.options = {
   headerLeft: () => (
     <IconButton page={Routes.CONTACTS} image={imagePaths.arrowIcon} />
   ),
 };
 
-export default AddContactScreen;
+export default SearchContact;

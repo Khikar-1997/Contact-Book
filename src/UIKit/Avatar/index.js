@@ -8,9 +8,13 @@ const Avatar = ({ image, name, surname, size = 'small' }) => (
   <View style={[styles.imageContainer, avatarSize[size]]}>
     {image ? (
       <Image
-        source={{
-          uri: image,
-        }}
+        source={
+          typeof image !== 'number'
+            ? {
+                uri: image,
+              }
+            : image
+        }
         style={styles.avatarImage}
       />
     ) : (
