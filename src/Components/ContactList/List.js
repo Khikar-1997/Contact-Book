@@ -4,6 +4,7 @@ import { SectionList, Text, View, StyleSheet } from 'react-native';
 import Contact from './Contact';
 
 import contactListWithTitle from '../../Utils/contactListWithTitle';
+
 import colors from '../../Constants/colors';
 
 const List = ({ data }) => {

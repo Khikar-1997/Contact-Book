@@ -8,13 +8,13 @@ import SearchButton from '../Components/Buttons/SearchButton';
 import Avatar from '../UIKit/Avatar';
 import IconButton from '../Components/Buttons/IconButton';
 
-import MOCK_DATA from '../../data/MOCK_DATA.json';
 import colors from '../Constants/colors';
 import * as Routes from '../Constants/navigationRouts';
 import imagePaths from '../Constants/imagePaths';
 
-const Contacts = () => {
+const Contacts = ({ route }) => {
   const navigation = useNavigation();
+  const MOCK_DATA = route.params.contacts;
 
   return (
     <View style={styles.contactScreen}>
