@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { SectionList, Text, View, StyleSheet } from 'react-native';
 
+import Contact from './Contact';
+
 import contactListWithTitle from '../../Utils/contactListWithTitle';
 import colors from '../../Constants/colors';
-
-import Contact from './Contact';
 
 const List = ({ data }) => {
   const contactList = useMemo(() => contactListWithTitle(data), [data]);

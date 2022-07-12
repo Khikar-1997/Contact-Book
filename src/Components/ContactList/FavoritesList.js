@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
+import { FlatList } from 'react-native';
+
+import Contact from './Contact';
 
 import filterFavorites from '../../Utils/filterFavorites';
-import { FlatList } from 'react-native';
-import Contact from './Contact';
 
 const FavoritesList = ({ data }) => {
   const favoritesList = useMemo(() => filterFavorites(data), [data]);

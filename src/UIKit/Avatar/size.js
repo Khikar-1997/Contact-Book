@@ -11,4 +11,9 @@ export default StyleSheet.create({
     height: 104,
     borderRadius: 24,
   },
+  homePage: {
+    width: 40,
+    height: 40,
+    borderRadius: 16,
+  },
 });

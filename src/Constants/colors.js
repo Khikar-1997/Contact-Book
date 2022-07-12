@@ -7,4 +7,5 @@ export default {
   hostWhite: '#F7F7FC',
   black: '#000000',
   lavender: '#EFF0F7',
+  logan: '#A0A3BD',
 };
