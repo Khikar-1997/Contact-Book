@@ -3,23 +3,19 @@ import { FlatList, StyleSheet } from 'react-native';
 
 import Contact from '../ContactList/Contact';
 
-import filterContactByInputtedValue from '../../Utils/filterContactByInputtedValue';
+import filterContactByInputtedValue from '../../Utils/filterContactByValue';
 
 const SearchedContacts = ({ value, contacts }) => {
-  const renderItem = ({ item }) => {
-    return <Contact contact={item} />;
-  };
-
   const searchedContactsList = filterContactByInputtedValue(value, contacts);
+  console.log(searchedContactsList);
 
-  const dataToShow = useMemo(() => {
-    return value === '' ? contacts.slice(0, 10) : searchedContactsList;
-  }, [contacts, searchedContactsList, value]);
+  const dataToShow =
+    value === '' ? contacts.slice(0, 10) : searchedContactsList;
 
   return (
     <FlatList
       data={dataToShow}
-      renderItem={renderItem}
+      renderItem={({ item }) => <Contact contact={item} />}
       keyExtractor={item => item.id}
       contentInsetAdjustmentBehavior="automatic"
       style={styles.searchedContactsList}

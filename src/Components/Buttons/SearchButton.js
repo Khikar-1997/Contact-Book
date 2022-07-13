@@ -5,10 +5,10 @@ import { SEARCH_CONTACT } from '../../Constants/navigationRouts';
 import imagePaths from '../../Constants/imagePaths';
 import colors from '../../Constants/colors';
 
-const SearchButton = ({ navigation }) => (
+const SearchButton = ({ navigation, contacts }) => (
   <View style={styles.searchButtonContainer}>
     <TouchableOpacity
-      onPress={() => navigation.navigate(SEARCH_CONTACT)}
+      onPress={() => navigation.navigate(SEARCH_CONTACT, { contacts })}
       style={styles.searchButton}>
       <Image source={imagePaths.searchIcon} />
       <Text style={styles.text}>Search</Text>

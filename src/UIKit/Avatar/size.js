@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  small: {
+  medium: {
     width: 53,
     height: 53,
     borderRadius: 16,
@@ -11,7 +11,7 @@ export default StyleSheet.create({
     height: 104,
     borderRadius: 24,
   },
-  homePage: {
+  small: {
     width: 40,
     height: 40,
     borderRadius: 16,

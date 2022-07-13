@@ -11,16 +11,16 @@ import IconButton from '../Components/Buttons/IconButton';
 import colors from '../Constants/colors';
 import * as Routes from '../Constants/navigationRouts';
 import imagePaths from '../Constants/imagePaths';
+import contacts from '../../data/MOCK_DATA.json';
 
-const Contacts = ({ route }) => {
+const Contacts = () => {
   const navigation = useNavigation();
-  const MOCK_DATA = route.params.contacts;
 
   return (
     <View style={styles.contactScreen}>
-      <SearchButton navigation={navigation} />
-      <FavoritesList data={MOCK_DATA} />
-      <List data={MOCK_DATA} />
+      <SearchButton navigation={navigation} contacts={contacts} />
+      <FavoritesList data={contacts} />
+      <List data={contacts} />
     </View>
   );
 };
@@ -42,7 +42,7 @@ Contacts.options = {
       name="Khikar"
       surname="Harutyunyan"
       image={imagePaths.homePageAvatarImage}
-      size="homePage"
+      size="small"
     />
   ),
 };

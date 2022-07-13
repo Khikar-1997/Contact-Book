@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import IconButton from '../Components/Buttons/IconButton';
 import SearchedContacts from '../Components/ContactSearch/SearchedContacts';
@@ -9,9 +9,11 @@ import * as Routes from '../Constants/navigationRouts';
 import colors from '../Constants/colors';
 import imagePaths from '../Constants/imagePaths';
 
-const SearchContact = ({ route }) => {
-  const [searchedText, setSearchedText] = useState('');
+const SearchContact = () => {
+  const route = useRoute();
   const navigation = useNavigation();
+
+  const [searchedText, setSearchedText] = useState('');
   const MOCK_DATA = route.params.contacts;
 
   useLayoutEffect(() => {
@@ -33,6 +35,12 @@ const SearchContact = ({ route }) => {
 };
 
 SearchContact.options = {
+  headerSearchBarOptions: {
+    // onChangeText: event => setSearchedText(event.nativeEvent.text),
+    placeholder: 'Search',
+    textColor: colors.logan,
+    hideWhenScrolling: false,
+  },
   headerLeft: () => (
     <IconButton page={Routes.CONTACTS} image={imagePaths.arrowIcon} />
   ),

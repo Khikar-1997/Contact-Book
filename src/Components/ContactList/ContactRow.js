@@ -10,7 +10,7 @@ const ContactRow = ({ contact }) => (
       image={contact.avatar_image}
       name={contact.name}
       surname={contact.surname}
-      size="small"
+      size="medium"
     />
     <ContactInfo
       name={contact.name}

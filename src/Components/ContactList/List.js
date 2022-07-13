@@ -16,15 +16,11 @@ const List = ({ data }) => {
     </View>
   );
 
-  const renderItem = ({ item }) => {
-    return <Contact contact={item} />;
-  };
-
   return (
     <SectionList
       sections={contactList}
       keyExtractor={item => item.id}
-      renderItem={renderItem}
+      renderItem={({ item }) => <Contact contact={item} />}
       renderSectionHeader={rendererFunction}
     />
   );
