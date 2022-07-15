@@ -1,11 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
-import avatarSize from './size';
 import colors from '../../Constants/colors';
 
 const Avatar = ({ image, name, surname, size = 'small' }) => (
-  <View style={[styles.imageContainer, avatarSize[size]]}>
+  <View style={[styles.imageContainer, styles[`size_${size}`]]}>
     {image ? (
       <Image
         source={
@@ -38,6 +37,21 @@ const styles = StyleSheet.create({
   },
   avatarNameFirstLetter: {
     color: colors.white,
+  },
+  size_medium: {
+    width: 53,
+    height: 53,
+    borderRadius: 16,
+  },
+  size_large: {
+    width: 104,
+    height: 104,
+    borderRadius: 24,
+  },
+  size_small: {
+    width: 40,
+    height: 40,
+    borderRadius: 16,
   },
 });
 

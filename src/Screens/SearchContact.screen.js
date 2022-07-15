@@ -1,5 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import SearchedContacts from '../Components/ContactSearch/SearchedContacts';
@@ -7,6 +6,7 @@ import SearchedContacts from '../Components/ContactSearch/SearchedContacts';
 import * as Routes from '../Constants/navigationRouts';
 import colors from '../Constants/colors';
 import Button from '../UIKit/Button';
+import filterContactByInputtedValue from '../Utils/filterContactByValue';
 
 const SearchContact = () => {
   const route = useRoute();
@@ -14,15 +14,21 @@ const SearchContact = () => {
   const navigation = useNavigation();
 
   const [searchedText, setSearchedText] = useState('');
-  const MOCK_DATA = route.params.contacts;
+  const contacts = route.params.contacts;
 
-  const handleChange = e => {
-    e.persist();
+  const searchedContactsList = filterContactByInputtedValue(
+    searchedText,
+    contacts,
+  );
+
+  const initial = useMemo(() => contacts.slice(0, 10), [contacts]);
+  const dataToShow = searchedText === '' ? initial : searchedContactsList;
+
+  const handleChange = ({ nativeEvent: { text } }) => {
     clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
-      console.log('1');
-      setSearchedText(e.nativeEvent.text);
-    }, 2000);
+      setSearchedText(text);
+    }, 250);
   };
 
   useLayoutEffect(() => {
@@ -33,27 +39,20 @@ const SearchContact = () => {
         textColor: colors.logan,
         hideWhenScrolling: false,
       },
-      headerLeft: () => (
-        <Button
-          onPress={() => navigation.navigate(Routes.CONTACTS)}
-          icon="arrow"
-          size="small"
-        />
-      ),
     });
   }, [navigation]);
 
-  return (
-    <View style={styles.searchedContactsContainer}>
-      <SearchedContacts value={searchedText} contacts={MOCK_DATA} />
-    </View>
-  );
+  return <SearchedContacts value={searchedText} contacts={dataToShow} />;
 };
 
-const styles = StyleSheet.create({
-  searchedContactsContainer: {
-    flex: 1,
-  },
+SearchContact.options = ({ navigation }) => ({
+  headerLeft: () => (
+    <Button
+      onPress={() => navigation.navigate(Routes.CONTACTS)}
+      icon="arrow"
+      size="small"
+    />
+  ),
 });
 
 export default SearchContact;

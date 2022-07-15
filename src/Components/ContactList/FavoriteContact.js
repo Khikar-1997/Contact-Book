@@ -18,8 +18,8 @@ const FavoriteContact = ({ contact }) => (
 
 const styles = StyleSheet.create({
   contactListContainer: {
-    paddingBottom: 26,
-    paddingLeft: 16,
+    width: 104,
+    marginRight: 16,
   },
 });
 

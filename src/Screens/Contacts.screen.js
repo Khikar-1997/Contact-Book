@@ -16,18 +16,6 @@ import Button from '../UIKit/Button';
 const Contacts = () => {
   const navigation = useNavigation();
 
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <Button
-          onPress={() => navigation.navigate(Routes.ADD_CONTACTS)}
-          icon="add"
-          size="small"
-        />
-      ),
-    });
-  });
-
   return (
     <View style={styles.contactScreen}>
       <SearchButton contacts={contacts} navigation={navigation} />
@@ -49,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-Contacts.options = {
+Contacts.options = navigation => ({
   headerLeft: () => (
     <Avatar
       name="Khikar"
@@ -58,6 +46,13 @@ Contacts.options = {
       size="small"
     />
   ),
-};
+  headerRight: () => (
+    <Button
+      onPress={() => navigation.navigate(Routes.ADD_CONTACTS)}
+      icon="add"
+      size="small"
+    />
+  ),
+});
 
 export default Contacts;

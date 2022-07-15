@@ -13,11 +13,8 @@ const FavoriteContactInfo = ({ name, surname }) => (
 
 const styles = StyleSheet.create({
   contactInfoContainer: {
-    width: 79,
-    height: 24,
     marginLeft: 10,
     borderBottomColor: colors.quartz,
-    marginBottom: 50,
     alignItems: 'center',
   },
   contactNameAndSurnameText: {

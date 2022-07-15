@@ -1,13 +1,13 @@
 import React from 'react';
 
 import add from '../../../data/images/icons/Add.svg';
-import Arrow from '../../../data/images/icons/Arrow.svg';
-import Search from '../../../data/images/icons/Search.svg';
+import arrow from '../../../data/images/icons/Arrow.svg';
+import search from '../../../data/images/icons/Search.svg';
 
 const iconList = {
   add,
-  arrow: Arrow,
-  search: Search,
+  arrow,
+  search,
 };
 
 const RenderIcon = ({ icon }) => {

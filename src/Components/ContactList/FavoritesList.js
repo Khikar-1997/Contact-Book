@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View, StyleSheet } from 'react-native';
 
 import Contact from './Contact';
 
@@ -9,13 +9,22 @@ const FavoritesList = ({ data }) => {
   const favoritesList = useMemo(() => filterFavorites(data), [data]);
 
   return (
-    <FlatList
-      data={favoritesList}
-      keyExtractor={item => item.id}
-      renderItem={({ item }) => <Contact contact={item} isFavorite />}
-      horizontal
-    />
+    <View>
+      <FlatList
+        contentContainerStyle={styles.container}
+        data={favoritesList}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => <Contact contact={item} isFavorite />}
+        horizontal
+      />
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 16,
+  },
+});
 
 export default FavoritesList;
