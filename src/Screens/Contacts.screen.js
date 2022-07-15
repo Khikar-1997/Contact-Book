@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet } from 'react-native';
 
 import List from '../Components/ContactList/List';
@@ -13,17 +12,13 @@ import imagePaths from '../Constants/imagePaths';
 import contacts from '../../data/MOCK_DATA.json';
 import Button from '../UIKit/Button';
 
-const Contacts = () => {
-  const navigation = useNavigation();
-
-  return (
-    <View style={styles.contactScreen}>
-      <SearchButton contacts={contacts} navigation={navigation} />
-      <FavoritesList data={contacts} />
-      <List data={contacts} />
-    </View>
-  );
-};
+const Contacts = () => (
+  <View style={styles.contactScreen}>
+    <SearchButton contacts={contacts} />
+    <FavoritesList data={contacts} />
+    <List data={contacts} />
+  </View>
+);
 
 const styles = StyleSheet.create({
   contactScreen: {
@@ -37,7 +32,7 @@ const styles = StyleSheet.create({
   },
 });
 
-Contacts.options = navigation => ({
+Contacts.options = ({ navigation }) => ({
   headerLeft: () => (
     <Avatar
       name="Khikar"

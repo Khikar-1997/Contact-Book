@@ -4,17 +4,22 @@ import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { SEARCH_CONTACT } from '../../Constants/navigationRouts';
 import colors from '../../Constants/colors';
 import Icons from '../../UIKit/Icons';
+import { useNavigation } from '@react-navigation/native';
 
-const SearchButton = ({ navigation, contacts }) => (
-  <View style={styles.searchButtonContainer}>
-    <TouchableOpacity
-      style={styles.searchButton}
-      onPress={() => navigation.navigate(SEARCH_CONTACT, { contacts })}>
-      <Icons icon="search" />
-      <Text style={styles.text}>Search</Text>
-    </TouchableOpacity>
-  </View>
-);
+const SearchButton = ({ contacts }) => {
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.searchButtonContainer}>
+      <TouchableOpacity
+        style={styles.searchButton}
+        onPress={() => navigation.navigate(SEARCH_CONTACT, { contacts })}>
+        <Icons icon="search" />
+        <Text style={styles.text}>Search</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   searchButtonContainer: {
