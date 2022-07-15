@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     width: '75%',
     marginLeft: 10,
     justifyContent: 'center',
-    borderBottomColor: colors.grey,
+    borderBottomColor: colors.quartz,
   },
   contactNameAndSurnameText: {
     fontSize: 16,

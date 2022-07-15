@@ -1,16 +1,16 @@
 import React from 'react';
-import { Text, TouchableOpacity, View, StyleSheet, Image } from 'react-native';
+import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 
 import { SEARCH_CONTACT } from '../../Constants/navigationRouts';
-import imagePaths from '../../Constants/imagePaths';
 import colors from '../../Constants/colors';
+import Icons from '../../UIKit/Icons';
 
 const SearchButton = ({ navigation, contacts }) => (
   <View style={styles.searchButtonContainer}>
     <TouchableOpacity
-      onPress={() => navigation.navigate(SEARCH_CONTACT, { contacts })}
-      style={styles.searchButton}>
-      <Image source={imagePaths.searchIcon} />
+      style={styles.searchButton}
+      onPress={() => navigation.navigate(SEARCH_CONTACT, { contacts })}>
+      <Icons icon="search" />
       <Text style={styles.text}>Search</Text>
     </TouchableOpacity>
   </View>

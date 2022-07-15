@@ -1,17 +1,27 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import IconButton from '../Components/Buttons/IconButton';
+import Button from '../UIKit/Button';
 
-import imagePaths from '../Constants/imagePaths';
 import * as Routes from '../Constants/navigationRouts';
+import { useNavigation } from '@react-navigation/native';
 
-const AddContactScreen = () => <View />;
+const AddContactScreen = () => {
+  const navigation = useNavigation();
 
-AddContactScreen.options = {
-  headerLeft: () => (
-    <IconButton page={Routes.CONTACTS} image={imagePaths.arrowIcon} />
-  ),
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <Button
+          onPress={() => navigation.navigate(Routes.CONTACTS)}
+          icon="arrow"
+          size="small"
+        />
+      ),
+    });
+  });
+
+  return <View />;
 };
 
 export default AddContactScreen;

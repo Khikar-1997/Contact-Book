@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
 import Contact from '../ContactList/Contact';
@@ -7,7 +7,6 @@ import filterContactByInputtedValue from '../../Utils/filterContactByValue';
 
 const SearchedContacts = ({ value, contacts }) => {
   const searchedContactsList = filterContactByInputtedValue(value, contacts);
-  console.log(searchedContactsList);
 
   const dataToShow =
     value === '' ? contacts.slice(0, 10) : searchedContactsList;
