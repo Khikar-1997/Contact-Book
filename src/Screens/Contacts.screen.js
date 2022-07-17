@@ -43,7 +43,7 @@ Contacts.options = ({ navigation }) => ({
   ),
   headerRight: () => (
     <Button
-      onPress={() => navigation.navigate(Routes.ADD_CONTACTS)}
+      onPress={() => navigation.navigate(Routes.ADD_CONTACTS, { contacts })}
       icon="add"
       size="small"
     />
