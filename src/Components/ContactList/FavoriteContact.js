@@ -1,7 +1,8 @@
 import React from 'react';
-import Avatar from '../../UIKit/Avatar';
 import { StyleSheet, View } from 'react-native';
+
 import FavoriteContactInfo from './FavoriteContactInfo';
+import Avatar from '../../UIKit/Avatar';
 
 const FavoriteContact = ({ contact }) => (
   <View style={styles.contactListContainer}>
@@ -17,8 +18,8 @@ const FavoriteContact = ({ contact }) => (
 
 const styles = StyleSheet.create({
   contactListContainer: {
-    paddingBottom: 26,
-    paddingLeft: 16,
+    width: 104,
+    marginRight: 16,
   },
 });
 

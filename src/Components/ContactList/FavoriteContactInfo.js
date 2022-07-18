@@ -3,23 +3,18 @@ import { Text, View, StyleSheet } from 'react-native';
 
 import colors from '../../Constants/colors';
 
-const FavoriteContactInfo = ({ name, surname }) => {
-  return (
-    <View style={styles.contactInfoContainer}>
-      <Text style={styles.contactNameAndSurnameText} numberOfLines={1}>
-        {`${name} ${surname || ''}`}
-      </Text>
-    </View>
-  );
-};
+const FavoriteContactInfo = ({ name, surname }) => (
+  <View style={styles.contactInfoContainer}>
+    <Text style={styles.contactNameAndSurnameText} numberOfLines={1}>
+      {`${name} ${surname || ''}`}
+    </Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   contactInfoContainer: {
-    width: 79,
-    height: 24,
     marginLeft: 10,
-    borderBottomColor: colors.grey,
-    marginBottom: 25,
+    borderBottomColor: colors.quartz,
     alignItems: 'center',
   },
   contactNameAndSurnameText: {

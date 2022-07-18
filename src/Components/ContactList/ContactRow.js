@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
 import Avatar from '../../UIKit/Avatar';
 import ContactInfo from './ContactInfo';
-import { StyleSheet, View } from 'react-native';
 
 const ContactRow = ({ contact }) => (
   <View style={styles.contactListContainer}>
@@ -9,7 +10,7 @@ const ContactRow = ({ contact }) => (
       image={contact.avatar_image}
       name={contact.name}
       surname={contact.surname}
-      size="small"
+      size="medium"
     />
     <ContactInfo
       name={contact.name}

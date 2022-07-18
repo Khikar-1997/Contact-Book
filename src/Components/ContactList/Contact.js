@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ContactRow from './ContactRow';
 import FavoriteContact from './FavoriteContact';
 

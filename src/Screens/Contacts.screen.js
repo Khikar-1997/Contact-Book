@@ -1,32 +1,53 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { View, StyleSheet, Button } from 'react-native';
-
-import { ADD_CONTACTS } from '../Constants/navigationRouts';
-import MOCK_DATA from '../../data/MOCK_DATA.json';
+import { View, StyleSheet } from 'react-native';
 
 import List from '../Components/ContactList/List';
 import FavoritesList from '../Components/ContactList/FavoritesList';
+import SearchButton from '../Components/ContactList/SearchButton';
+import Avatar from '../UIKit/Avatar';
 
 import colors from '../Constants/colors';
+import * as Routes from '../Constants/navigationRouts';
+import imagePaths from '../Constants/imagePaths';
+import contacts from '../../data/MOCK_DATA.json';
+import Button from '../UIKit/Button';
 
-const Contacts = () => {
-  const navigation = useNavigation();
-
-  return (
-    <View style={styles.contactScreen}>
-      <Button title="Add" onPress={() => navigation.navigate(ADD_CONTACTS)} />
-      <FavoritesList data={MOCK_DATA} />
-      <List data={MOCK_DATA} />
-    </View>
-  );
-};
+const Contacts = () => (
+  <View style={styles.contactScreen}>
+    <SearchButton contacts={contacts} />
+    <FavoritesList data={contacts} />
+    <List data={contacts} />
+  </View>
+);
 
 const styles = StyleSheet.create({
   contactScreen: {
     flex: 1,
     backgroundColor: colors.white,
+    borderRadius: 12,
   },
+  searchButtonContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 32,
+  },
+});
+
+Contacts.options = ({ navigation }) => ({
+  headerLeft: () => (
+    <Avatar
+      name="Khikar"
+      surname="Harutyunyan"
+      image={imagePaths.homePageAvatarImage}
+      size="small"
+    />
+  ),
+  headerRight: () => (
+    <Button
+      onPress={() => navigation.navigate(Routes.ADD_CONTACTS)}
+      icon="add"
+      size="small"
+    />
+  ),
 });
 
 export default Contacts;

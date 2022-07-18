@@ -1,18 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
-const AddContactScreen = () => (
-  <View style={styles.addContactScreen}>
-    <Text>Contacts</Text>
-  </View>
-);
+import Button from '../UIKit/Button';
 
-const styles = StyleSheet.create({
-  addContactScreen: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+import * as Routes from '../Constants/navigationRouts';
+
+const AddContactScreen = () => <View />;
+
+AddContactScreen.options = ({ navigation }) => ({
+  headerLeft: () => (
+    <Button
+      onPress={() => navigation.navigate(Routes.CONTACTS)}
+      icon="arrow"
+      size="small"
+    />
+  ),
 });
 
 export default AddContactScreen;

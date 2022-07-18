@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
 import { SectionList, Text, View, StyleSheet } from 'react-native';
 
-import contactListWithTitle from '../../Utils/contactListWithTitle';
-import colors from '../../Constants/colors';
-
 import Contact from './Contact';
+
+import contactListWithTitle from '../../Utils/contactListWithTitle';
+
+import colors from '../../Constants/colors';
 
 const List = ({ data }) => {
   const contactList = useMemo(() => contactListWithTitle(data), [data]);
@@ -15,15 +16,11 @@ const List = ({ data }) => {
     </View>
   );
 
-  const renderItem = ({ item }) => {
-    return <Contact contact={item} />;
-  };
-
   return (
     <SectionList
       sections={contactList}
       keyExtractor={item => item.id}
-      renderItem={renderItem}
+      renderItem={({ item }) => <Contact contact={item} />}
       renderSectionHeader={rendererFunction}
     />
   );
