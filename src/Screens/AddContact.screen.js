@@ -6,16 +6,12 @@ import AddContact from '../Components/AddContacts/AddContact';
 
 import * as Routes from '../Constants/navigationRouts';
 import colors from '../Constants/colors';
-import { useRoute } from '@react-navigation/native';
 
-const AddContactScreen = () => {
-  const route = useRoute();
-  return (
-    <View style={styles.container}>
-      <AddContact contacts={route.params.contacts} />
-    </View>
-  );
-};
+const AddContactScreen = () => (
+  <View style={styles.container}>
+    <AddContact />
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {

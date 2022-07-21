@@ -1,19 +1,19 @@
 import React from 'react';
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { SEARCH_CONTACT } from '../../Constants/navigationRouts';
 import colors from '../../Constants/colors';
 import Icons from '../../UIKit/Icons';
-import { useNavigation } from '@react-navigation/native';
 
-const SearchButton = ({ contacts }) => {
+const SearchButton = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.searchButtonContainer}>
       <TouchableOpacity
         style={styles.searchButton}
-        onPress={() => navigation.navigate(SEARCH_CONTACT, { contacts })}>
+        onPress={() => navigation.navigate(SEARCH_CONTACT)}>
         <Icons icon="search" />
         <Text style={styles.text}>Search</Text>
       </TouchableOpacity>

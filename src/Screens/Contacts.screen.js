@@ -9,14 +9,13 @@ import Avatar from '../UIKit/Avatar';
 import colors from '../Constants/colors';
 import * as Routes from '../Constants/navigationRouts';
 import imagePaths from '../Constants/imagePaths';
-import contacts from '../../data/MOCK_DATA.json';
 import Button from '../UIKit/Button';
 
 const Contacts = () => (
   <View style={styles.contactScreen}>
-    <SearchButton contacts={contacts} />
-    <FavoritesList data={contacts} />
-    <List data={contacts} />
+    <SearchButton />
+    <FavoritesList />
+    <List />
   </View>
 );
 
@@ -43,7 +42,7 @@ Contacts.options = ({ navigation }) => ({
   ),
   headerRight: () => (
     <Button
-      onPress={() => navigation.navigate(Routes.ADD_CONTACTS, { contacts })}
+      onPress={() => navigation.navigate(Routes.ADD_CONTACTS)}
       icon="add"
       size="small"
     />

@@ -1,5 +1,7 @@
 import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { KeyboardAvoidingView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 import SearchedContacts from '../Components/ContactSearch/SearchedContacts';
 
@@ -7,14 +9,14 @@ import * as Routes from '../Constants/navigationRouts';
 import colors from '../Constants/colors';
 import Button from '../UIKit/Button';
 import filterContactByInputtedValue from '../Utils/filterContactByValue';
+import { getContacts } from '../Selectors/contacts';
 
 const SearchContact = () => {
-  const route = useRoute();
   const timeoutRef = useRef();
   const navigation = useNavigation();
+  const contacts = useSelector(getContacts);
 
   const [searchedText, setSearchedText] = useState('');
-  const contacts = route.params.contacts;
 
   const searchedContactsList = filterContactByInputtedValue(
     searchedText,
@@ -42,7 +44,14 @@ const SearchContact = () => {
     });
   }, [navigation]);
 
-  return <SearchedContacts value={searchedText} contacts={dataToShow} />;
+  return (
+    <KeyboardAvoidingView
+      behavior={'padding'}
+      style={{ flex: 1 }}
+      keyboardVerticalOffset={45}>
+      <SearchedContacts value={searchedText} contacts={dataToShow} />
+    </KeyboardAvoidingView>
+  );
 };
 
 SearchContact.options = ({ navigation }) => ({

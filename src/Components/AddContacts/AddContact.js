@@ -2,19 +2,40 @@ import React, { useState } from 'react';
 import { Button, View, StyleSheet } from 'react-native';
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 import FiledForm from './FiledForm';
 
 import colors from '../../Constants/colors';
-import { useNavigation } from '@react-navigation/native';
 import { CONTACTS } from '../../Constants/navigationRouts';
+import { ADD_CONTACT } from '../../Actions/contacts';
 
-const AddContact = ({ contacts }) => {
+const AddContact = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const id = uuidv4();
+
+  const onPress = () => {
+    if (name && phoneNumber) {
+      dispatch({
+        type: ADD_CONTACT,
+        payload: {
+          id,
+          name,
+          surname,
+          avatar_image: '',
+          phone_number: phoneNumber,
+          favorites: false,
+        },
+      });
+      return navigation.navigate(CONTACTS);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -42,22 +63,7 @@ const AddContact = ({ contacts }) => {
         placeholderTextColor={colors.logan}
         onChangeText={setPhoneNumber}
       />
-      <Button
-        title="Save"
-        onPress={() => {
-          if (name && phoneNumber) {
-            contacts.push({
-              id: id,
-              name: name,
-              surname: surname,
-              avatar_image: '',
-              phone_number: phoneNumber,
-              favorites: false,
-            });
-            return navigation.navigate(CONTACTS);
-          }
-        }}
-      />
+      <Button title="Save" onPress={onPress} />
     </View>
   );
 };
