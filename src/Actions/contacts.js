@@ -1,3 +1,15 @@
-import { createAction } from '@reduxjs/toolkit/src/createAction';
+import { createAction } from '@reduxjs/toolkit';
 
-export const ADD_CONTACT = createAction('CONTACT/ADD_CONTACT');
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
+const id = uuidv4();
+
+export const addContact = createAction('CONTACT/ADD_CONTACT', contactInfo => {
+  return {
+    payload: {
+      id: id,
+      ...contactInfo,
+      favorites: false,
+    },
+  };
+});

@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import Contact from '../ContactList/Contact';
 
 const SearchedContacts = ({ contacts }) => (
-  <View style={{ flex: 1 }}>
+  <View style={styles.container}>
     <FlatList
       data={contacts}
       renderItem={({ item }) => <Contact contact={item} />}
@@ -16,6 +16,9 @@ const SearchedContacts = ({ contacts }) => (
 );
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   searchedContactsList: {
     paddingTop: 10,
     flex: 1,

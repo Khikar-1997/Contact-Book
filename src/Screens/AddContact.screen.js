@@ -1,23 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 
 import Button from '../UIKit/Button';
-import AddContact from '../Components/AddContacts/AddContact';
+import AddContact from '../Components/AddContacts';
 
 import * as Routes from '../Constants/navigationRouts';
-import colors from '../Constants/colors';
 
-const AddContactScreen = () => (
-  <View style={styles.container}>
-    <AddContact />
-  </View>
-);
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.white,
-  },
-});
+const AddContactScreen = () => <AddContact />;
 
 AddContactScreen.options = ({ navigation }) => ({
   headerLeft: () => (

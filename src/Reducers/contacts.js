@@ -1,13 +1,13 @@
 import contacts from '../../data/MOCK_DATA.json';
-import { ADD_CONTACT } from '../Actions/contacts';
+import { addContact } from '../Actions/contacts';
 
 const initialState = {
-  value: contacts,
+  contacts: contacts,
 };
 
 export default (state = initialState, action) => {
-  if (action.type === ADD_CONTACT().type) {
-    return { ...state, value: [...state.value, action.payload] };
+  if (action.type === addContact().type) {
+    return { ...state, contacts: [...state.value, action.payload] };
   }
   return state;
 };
