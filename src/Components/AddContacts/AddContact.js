@@ -22,17 +22,16 @@ const AddContact = () => {
 
   const onPress = () => {
     if (name && phoneNumber) {
-      dispatch({
-        type: ADD_CONTACT,
-        payload: {
+      dispatch(
+        ADD_CONTACT({
           id,
           name,
           surname,
           avatar_image: '',
           phone_number: phoneNumber,
           favorites: false,
-        },
-      });
+        }),
+      );
       return navigation.navigate(CONTACTS);
     }
   };

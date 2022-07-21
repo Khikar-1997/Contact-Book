@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  if (action.type === ADD_CONTACT) {
+  if (action.type === ADD_CONTACT().type) {
     return { ...state, value: [...state.value, action.payload] };
   }
   return state;
