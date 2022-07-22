@@ -1,15 +1,13 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { FlatList, View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import Contact from './Contact';
 
-import filterFavorites from '../../Utils/filterFavorites';
-import { getContacts } from '../../Selectors/contacts';
+import { selectFilterFavorites } from '../../Selectors/contacts';
 
 const FavoritesList = () => {
-  const contacts = useSelector(getContacts);
-  const favoritesList = useMemo(() => filterFavorites(contacts), [contacts]);
+  const favoritesList = useSelector(selectFilterFavorites);
 
   return (
     <View>

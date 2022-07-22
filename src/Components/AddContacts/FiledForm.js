@@ -4,16 +4,14 @@ import Input from '../../UIKit/Inputs';
 import Icons from '../../UIKit/Icons';
 import colors from '../../Constants/colors';
 
-const FiledForm = (props, { value }) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.fieldContainer}>
-        <Icons icon={props.icon} />
-        <Input {...props} placeholderTextColor={colors.logan} value={value} />
-      </View>
+const FiledForm = props => (
+  <View style={styles.container}>
+    <View style={styles.fieldContainer}>
+      <Icons icon={props.icon} />
+      <Input {...props} placeholderTextColor={colors.logan} />
     </View>
-  );
-};
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
