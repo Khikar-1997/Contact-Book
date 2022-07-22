@@ -1,14 +1,15 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { SectionList, Text, View, StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import Contact from './Contact';
 
-import contactListWithTitle from '../../Utils/contactListWithTitle';
+import { selectContactListWithTitle } from '../../Selectors/contacts';
 
 import colors from '../../Constants/colors';
 
-const List = ({ data }) => {
-  const contactList = useMemo(() => contactListWithTitle(data), [data]);
+const List = () => {
+  const contactList = useSelector(selectContactListWithTitle);
 
   const rendererFunction = ({ section: { title } }) => (
     <View style={styles.titleContainer}>
