@@ -37,7 +37,6 @@ const Index = () => {
         value={name}
         placeholder="name"
         autoCapitalize="sentences"
-        placeholderTextColor={colors.logan}
         icon="profile"
         onChangeText={setName}
       />
@@ -45,7 +44,6 @@ const Index = () => {
         value={surname}
         placeholder="surname"
         autoCapitalize="sentences"
-        placeholderTextColor={colors.logan}
         icon="profile"
         onChangeText={setSurname}
       />
@@ -54,7 +52,6 @@ const Index = () => {
         value={phoneNumber}
         placeholder="phone"
         keyboardType="phone-pad"
-        placeholderTextColor={colors.logan}
         onChangeText={setPhoneNumber}
       />
       <Button title="Save" onPress={onPress} />

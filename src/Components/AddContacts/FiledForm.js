@@ -2,13 +2,14 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Input from '../../UIKit/Inputs';
 import Icons from '../../UIKit/Icons';
+import colors from '../../Constants/colors';
 
-const FiledForm = props => {
+const FiledForm = (props, { value }) => {
   return (
     <View style={styles.container}>
       <View style={styles.fieldContainer}>
         <Icons icon={props.icon} />
-        <Input {...props} />
+        <Input {...props} placeholderTextColor={colors.logan} value={value} />
       </View>
     </View>
   );
