@@ -9,12 +9,12 @@ import * as Routes from '../Constants/navigationRouts';
 import colors from '../Constants/colors';
 import Button from '../UIKit/Button';
 import filterContactByInputtedValue from '../Utils/filterContactByValue';
-import { getContacts } from '../Selectors/contacts';
+import { selectContacts } from '../Selectors/contacts';
 
 const SearchContact = () => {
   const timeoutRef = useRef();
   const navigation = useNavigation();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const [searchedText, setSearchedText] = useState('');
 
