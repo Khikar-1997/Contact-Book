@@ -1,4 +1,6 @@
-import { createStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import contactsReducer from '../Reducers/contacts';
 
-export default createStore(contactsReducer);
+export default configureStore({
+  reducer: contactsReducer,
+});

@@ -9,7 +9,7 @@ import FiledForm from '../Components/AddContacts/FiledForm';
 
 import colors from '../Constants/colors';
 import { CONTACTS } from '../Constants/navigationRouts';
-import { addContact } from '../Actions/contacts';
+import { addContact } from '../Reducers/contacts';
 
 const AddContactScreen = () => {
   const navigation = useNavigation();
