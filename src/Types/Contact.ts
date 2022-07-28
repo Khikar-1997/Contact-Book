@@ -4,5 +4,5 @@ export type Contact = {
   surname: string;
   avatar_image: string;
   phone_number: string;
-  favorites: string;
+  favorites: boolean;
 };
