@@ -9,7 +9,7 @@ const initialState = {
   contacts,
 };
 
-export const counterSlice = createSlice({
+export const contactSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
@@ -30,6 +30,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { addContact } = counterSlice.actions;
+export const { addContact } = contactSlice.actions;
 
-export default counterSlice.reducer;
+export default contactSlice.reducer;
