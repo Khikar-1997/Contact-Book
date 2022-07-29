@@ -1,7 +1,15 @@
-import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  ReactElement,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { KeyboardAvoidingView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
+
+import type { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
 import SearchedContacts from '../Components/ContactSearch/SearchedContacts';
 
@@ -11,7 +19,7 @@ import Button from '../UIKit/Button';
 import filterContactByInputtedValue from '../Utils/filterContactByValue';
 import { selectContacts } from '../Selectors/contacts';
 
-const SearchContact = () => {
+const SearchContact: FunctionWithOptions = () => {
   const timeoutRef = useRef();
   const navigation = useNavigation();
   const contacts = useSelector(selectContacts);
@@ -52,6 +60,14 @@ const SearchContact = () => {
       <SearchedContacts value={searchedText} contacts={dataToShow} />
     </KeyboardAvoidingView>
   );
+};
+
+type FunctionWithOptions = {
+  options: (props: {
+    route: any;
+    navigation: any;
+  }) => NativeStackNavigationOptions;
+  (): ReactElement;
 };
 
 SearchContact.options = ({ navigation }) => ({
