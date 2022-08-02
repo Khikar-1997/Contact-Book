@@ -2,8 +2,9 @@ import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 
 import Contact from '../ContactList/Contact';
+import { Contact as ContactType } from '../../Types/Contact';
 
-const SearchedContacts = ({ contacts }) => (
+const SearchedContacts = ({ contacts }: { contacts: ContactType[] }) => (
   <View style={styles.container}>
     <FlatList
       data={contacts}

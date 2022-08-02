@@ -11,7 +11,11 @@ import colors from '../../Constants/colors';
 const List = () => {
   const contactList = useSelector(selectContactListWithTitle);
 
-  const rendererFunction = ({ section: { title } }) => (
+  const rendererFunction = ({
+    section: { title },
+  }: {
+    section: { title: string };
+  }) => (
     <View style={styles.titleContainer}>
       <Text style={styles.title}>{title}</Text>
     </View>

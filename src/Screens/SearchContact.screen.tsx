@@ -34,7 +34,11 @@ const SearchContact: FunctionWithOptions = () => {
   const initial = useMemo(() => contacts.slice(0, 10), [contacts]);
   const dataToShow = searchedText === '' ? initial : searchedContactsList;
 
-  const handleChange = ({ nativeEvent: { text } }) => {
+  const handleChange = ({
+    nativeEvent: { text },
+  }: {
+    nativeEvent: { text: string };
+  }) => {
     clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setSearchedText(text);

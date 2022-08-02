@@ -3,8 +3,9 @@ import { StyleSheet, View } from 'react-native';
 
 import Avatar from '../../UIKit/Avatar';
 import ContactInfo from './ContactInfo';
+import { Contact as ContactType } from '../../Types/Contact';
 
-const ContactRow = ({ contact }) => (
+const ContactRow = ({ contact }: { contact: ContactType }) => (
   <View style={styles.contactListContainer}>
     <Avatar
       image={contact.avatar_image}
