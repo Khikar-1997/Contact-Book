@@ -27,7 +27,6 @@ const AddContactScreen = (props: AvatarProps) => {
   const [surname, setSurname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [uri, setUri] = useState(props?.source?.uri || undefined);
-  console.log(uri);
 
   const pickPicture = () => {
     ImagePicker.openPicker({

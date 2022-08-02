@@ -23,7 +23,6 @@ const SearchContact: FunctionWithOptions = () => {
   const timeoutRef = useRef();
   const navigation = useNavigation();
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
 
   const [searchedText, setSearchedText] = useState('');
 
