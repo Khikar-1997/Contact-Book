@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Input from '../../UIKit/Inputs';
 import Icons from '../../UIKit/Icons';
@@ -7,9 +7,10 @@ import colors from '../../Constants/colors';
 type FiledFormProps = {
   value: string;
   placeholder: string;
-  autoCapitalize: string;
+  autoCapitalize?: string;
   icon: string;
-  onChangeText: () => void;
+  keyboardType?: string;
+  onChangeText: Dispatch<SetStateAction<string>>;
 };
 
 const FiledForm = (props: FiledFormProps) => (

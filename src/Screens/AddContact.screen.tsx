@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  View,
-  StyleSheet,
-  ImageURISource,
-  unstable_enableLogBox,
-} from 'react-native';
-import ImagePicker, { ImageOrVideo } from 'react-native-image-crop-picker';
+import { Button, View, StyleSheet } from 'react-native';
+import ImagePicker from 'react-native-image-crop-picker';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
