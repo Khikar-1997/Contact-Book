@@ -4,7 +4,15 @@ import Input from '../../UIKit/Inputs';
 import Icons from '../../UIKit/Icons';
 import colors from '../../Constants/colors';
 
-const FiledForm = props => (
+type FiledFormProps = {
+  value: string;
+  placeholder: string;
+  autoCapitalize: string;
+  icon: string;
+  onChangeText: () => void;
+};
+
+const FiledForm = (props: FiledFormProps) => (
   <View style={styles.container}>
     <View style={styles.fieldContainer}>
       <Icons icon={props.icon} />

@@ -3,21 +3,23 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  ImageURISource,
   GestureResponderEvent,
 } from 'react-native';
+
+import imagePaths from '../../Constants/imagePaths';
 
 export const ImageUploadForm = ({
   pickPicture,
   uri,
-  source,
 }: {
   pickPicture: (event: GestureResponderEvent) => void;
   uri: string;
-  source: ImageURISource;
 }) => (
   <TouchableOpacity onPress={pickPicture}>
-    <Image style={styles.avatar} source={uri ? { uri } : source} />
+    <Image
+      style={styles.avatar}
+      source={uri ? { uri } : imagePaths.placeholderImage}
+    />
   </TouchableOpacity>
 );
 

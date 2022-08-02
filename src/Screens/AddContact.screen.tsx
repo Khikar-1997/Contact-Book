@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Button, View, StyleSheet, ImageURISource } from 'react-native';
+import {
+  Button,
+  View,
+  StyleSheet,
+  ImageURISource,
+  unstable_enableLogBox,
+} from 'react-native';
 import ImagePicker, { ImageOrVideo } from 'react-native-image-crop-picker';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
@@ -12,22 +18,15 @@ import { ImageUploadForm } from '../Components/AddContacts/ImageUploadForm';
 import colors from '../Constants/colors';
 import { CONTACTS } from '../Constants/navigationRouts';
 import { addContact } from '../Reducers/contacts';
-import imagePaths from '../Constants/imagePaths';
 
-interface AvatarProps {
-  onChange?: (image: ImageOrVideo) => void;
-  source: ImageURISource;
-}
-
-const AddContactScreen = (props: AvatarProps) => {
+const AddContactScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [uri, setUri] = useState(props?.source?.uri || undefined);
-
+  const [uri, setUri] = useState<string>('');
   const pickPicture = () => {
     ImagePicker.openPicker({
       width: 300,
@@ -35,7 +34,6 @@ const AddContactScreen = (props: AvatarProps) => {
       cropping: true,
     }).then(image => {
       setUri(image.path);
-      props.onChange?.(image);
     });
   };
 
@@ -56,12 +54,7 @@ const AddContactScreen = (props: AvatarProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.uploadImageContainer}>
-        <ImageUploadForm
-          source={imagePaths.placeholderImage}
-          uri={uri}
-          props={props}
-          pickPicture={pickPicture}
-        />
+        <ImageUploadForm uri={uri} pickPicture={pickPicture} />
       </View>
       <View style={styles.formContainer}>
         <FiledForm
