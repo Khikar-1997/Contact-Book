@@ -3,7 +3,15 @@ import { Text, View, StyleSheet } from 'react-native';
 
 import colors from '../../Constants/colors';
 
-const ContactInfo = ({ name, surname, phoneNumber }) => (
+const ContactInfo = ({
+  name,
+  surname,
+  phoneNumber,
+}: {
+  name: string;
+  surname: string;
+  phoneNumber: string;
+}) => (
   <View style={styles.contactInfoContainer}>
     <Text style={styles.contactNameAndSurnameText} numberOfLines={1}>
       {`${name} ${surname || ''}`}
