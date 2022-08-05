@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { KeyboardAvoidingView } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
@@ -20,7 +20,7 @@ import filterContactByInputtedValue from '../Utils/filterContactByValue';
 import { selectContacts } from '../Selectors/contacts';
 
 const SearchContact: FunctionWithOptions = () => {
-  const timeoutRef = useRef();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const navigation = useNavigation();
   const contacts = useSelector(selectContacts);
 
@@ -31,7 +31,7 @@ const SearchContact: FunctionWithOptions = () => {
     contacts,
   );
 
-  const initial = useMemo(() => contacts.slice(0, 10), [contacts]);
+  const initial = useMemo(() => contacts?.slice(0, 10), [contacts]);
   const dataToShow = searchedText === '' ? initial : searchedContactsList;
 
   const handleChange = ({
@@ -48,9 +48,10 @@ const SearchContact: FunctionWithOptions = () => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerSearchBarOptions: {
-        onChangeText: event => handleChange(event),
+        onChangeText: (event: { nativeEvent: { text: string } }) =>
+          handleChange(event),
         placeholder: 'Search',
-        textColor: colors.logan,
+        textColor: colors?.logan,
         hideWhenScrolling: false,
       },
     });
@@ -59,9 +60,9 @@ const SearchContact: FunctionWithOptions = () => {
   return (
     <KeyboardAvoidingView
       behavior={'padding'}
-      style={{ flex: 1 }}
+      style={styles.container}
       keyboardVerticalOffset={45}>
-      <SearchedContacts value={searchedText} contacts={dataToShow} />
+      <SearchedContacts contacts={dataToShow} />
     </KeyboardAvoidingView>
   );
 };
@@ -82,6 +83,10 @@ SearchContact.options = ({ navigation }) => ({
       size="small"
     />
   ),
+});
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
 });
 
 export default SearchContact;

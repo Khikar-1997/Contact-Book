@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Input from '../../UIKit/Inputs';
 import Icons from '../../UIKit/Icons';
@@ -10,7 +10,7 @@ type FiledFormProps = {
   autoCapitalize?: string;
   icon: string;
   keyboardType?: string;
-  onChangeText: Dispatch<SetStateAction<string>>;
+  onChangeText: (input: string) => void;
 };
 
 const FiledForm = (props: FiledFormProps) => (

@@ -17,9 +17,9 @@ const AddContactScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [name, setName] = useState<string>('');
+  const [surname, setSurname] = useState<string>('');
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [uri, setUri] = useState<string>('');
   const pickPicture = () => {
     ImagePicker.openPicker({
